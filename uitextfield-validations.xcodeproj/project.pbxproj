@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15A16C5E2B8E541300DA1F5D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A16C5D2B8E541300DA1F5D /* Extensions.swift */; };
+		15A16C602B8E549F00DA1F5D /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A16C5F2B8E549F00DA1F5D /* AppConstants.swift */; };
 		15C23EFC2B8BA33A00D29F85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C23EFB2B8BA33A00D29F85 /* AppDelegate.swift */; };
 		15C23EFE2B8BA33A00D29F85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C23EFD2B8BA33A00D29F85 /* SceneDelegate.swift */; };
 		15C23F002B8BA33A00D29F85 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C23EFF2B8BA33A00D29F85 /* ViewController.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15A16C5D2B8E541300DA1F5D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		15A16C5F2B8E549F00DA1F5D /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		15C23EF82B8BA33A00D29F85 /* uitextfield-validations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "uitextfield-validations.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		15C23EFB2B8BA33A00D29F85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15C23EFD2B8BA33A00D29F85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +123,8 @@
 				15C23EFB2B8BA33A00D29F85 /* AppDelegate.swift */,
 				15C23EFD2B8BA33A00D29F85 /* SceneDelegate.swift */,
 				15C23EFF2B8BA33A00D29F85 /* ViewController.swift */,
+				15A16C5D2B8E541300DA1F5D /* Extensions.swift */,
+				15A16C5F2B8E549F00DA1F5D /* AppConstants.swift */,
 				15C23F012B8BA33A00D29F85 /* Main.storyboard */,
 				15C23F042B8BA33B00D29F85 /* Assets.xcassets */,
 				15C23F062B8BA33B00D29F85 /* LaunchScreen.storyboard */,
@@ -164,7 +170,6 @@
 				D5A2823B9C81E5099561682D /* Pods-uitextfield-validationsTests.debug.xcconfig */,
 				75B245C0B3750C87092E323D /* Pods-uitextfield-validationsTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -408,8 +413,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				15C23F002B8BA33A00D29F85 /* ViewController.swift in Sources */,
+				15A16C602B8E549F00DA1F5D /* AppConstants.swift in Sources */,
 				15C23EFC2B8BA33A00D29F85 /* AppDelegate.swift in Sources */,
 				15C23EFE2B8BA33A00D29F85 /* SceneDelegate.swift in Sources */,
+				15A16C5E2B8E541300DA1F5D /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

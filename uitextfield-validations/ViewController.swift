@@ -17,3 +17,13 @@ class ViewController: UIViewController {
 
 }
 
+extension ViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return textField.validate(
+            withReplacementString: string,
+            andRange: range,
+            toAllow: .numbers
+        )
+    }
+}
+

@@ -95,6 +95,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15A16C612B8FAA0E00DA1F5D /* App Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				15C23EFB2B8BA33A00D29F85 /* AppDelegate.swift */,
+				15C23EFD2B8BA33A00D29F85 /* SceneDelegate.swift */,
+			);
+			path = "App Delegates";
+			sourceTree = "<group>";
+		};
+		15A16C622B8FAA2200DA1F5D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				15A16C632B8FAA3000DA1F5D /* Storyboards */,
+				15A16C642B8FAA4200DA1F5D /* ViewControllers */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		15A16C632B8FAA3000DA1F5D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				15C23F012B8BA33A00D29F85 /* Main.storyboard */,
+				15C23F062B8BA33B00D29F85 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		15A16C642B8FAA4200DA1F5D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				15C23EFF2B8BA33A00D29F85 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		15A16C652B8FAA5A00DA1F5D /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				15C23F042B8BA33B00D29F85 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		15A16C662B8FAA6900DA1F5D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				15A16C5F2B8E549F00DA1F5D /* AppConstants.swift */,
+				15A16C5D2B8E541300DA1F5D /* Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		15C23EEF2B8BA33A00D29F85 = {
 			isa = PBXGroup;
 			children = (
@@ -120,15 +172,11 @@
 		15C23EFA2B8BA33A00D29F85 /* uitextfield-validations */ = {
 			isa = PBXGroup;
 			children = (
-				15C23EFB2B8BA33A00D29F85 /* AppDelegate.swift */,
-				15C23EFD2B8BA33A00D29F85 /* SceneDelegate.swift */,
-				15C23EFF2B8BA33A00D29F85 /* ViewController.swift */,
-				15A16C5D2B8E541300DA1F5D /* Extensions.swift */,
-				15A16C5F2B8E549F00DA1F5D /* AppConstants.swift */,
-				15C23F012B8BA33A00D29F85 /* Main.storyboard */,
-				15C23F042B8BA33B00D29F85 /* Assets.xcassets */,
-				15C23F062B8BA33B00D29F85 /* LaunchScreen.storyboard */,
 				15C23F092B8BA33B00D29F85 /* Info.plist */,
+				15A16C652B8FAA5A00DA1F5D /* Assets */,
+				15A16C612B8FAA0E00DA1F5D /* App Delegates */,
+				15A16C622B8FAA2200DA1F5D /* UI */,
+				15A16C662B8FAA6900DA1F5D /* Utils */,
 			);
 			path = "uitextfield-validations";
 			sourceTree = "<group>";

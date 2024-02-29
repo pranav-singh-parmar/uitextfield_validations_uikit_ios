@@ -10,6 +10,8 @@ import UIKit
 class ViewController: UIViewController {
     
     //MARK: - IBOutlets
+    @IBOutlet weak var nameTF: UITextField!
+    
     @IBOutlet weak var phoneNumberTF: UITextField!
     
     @IBOutlet weak var priceTF: UITextField!
@@ -22,9 +24,17 @@ class ViewController: UIViewController {
     
     //MARK: - Custom Functions
     private func setUpView() {
-        phoneNumberTF.keyboardType = .numberPad
-        priceTF.keyboardType = .decimalPad
+        nameTF.keyboardType = .namePhonePad
+        nameTF.textContentType = .name
+        nameTF.autocapitalizationType = .words
+        //nameTF.reloadInputViews()
         
+        phoneNumberTF.keyboardType = .numberPad
+        phoneNumberTF.textContentType = .telephoneNumber
+        priceTF.keyboardType = .decimalPad
+        // priceTF.textContentType = .
+        
+        nameTF.delegate = self
         phoneNumberTF.delegate = self
         priceTF.delegate = self
     }
@@ -33,7 +43,9 @@ class ViewController: UIViewController {
 //MARK: - UITextFieldDelegate
 extension ViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let allowedCharacters: StringInTextField? = if textField == phoneNumberTF {
+        let allowedCharacters: StringInTextField? = if textField == nameTF {
+            .lettersAndWhiteSpaces
+        } else if textField == phoneNumberTF {
             .numbers
         } else if textField == phoneNumberTF {
             .decimalNumbers

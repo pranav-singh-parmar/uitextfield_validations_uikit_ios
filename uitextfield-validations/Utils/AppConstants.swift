@@ -8,5 +8,5 @@
 import Foundation
 
 enum StringInTextField {
-    case lettersAndWhiteSpaces, numbers, decimalNumbers
+    case lettersAndWhiteSpaces, emailAddress, numbers, decimalNumbers
 }

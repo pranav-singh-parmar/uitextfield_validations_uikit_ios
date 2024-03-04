@@ -23,6 +23,9 @@ extension UITextField {
         switch allowedCharacters {
         case .lettersAndWhiteSpaces:
             characterSet = CharacterSet.letters.union(.whitespaces)
+        case .emailAddress:
+            //CharacterSet(charactersIn: "-_.~")
+            characterSet = CharacterSet(charactersIn: "-_.~").union(.alphanumerics)
         case .numbers:
             characterSet = CharacterSet.init(charactersIn: "0123456789")
         case .decimalNumbers:

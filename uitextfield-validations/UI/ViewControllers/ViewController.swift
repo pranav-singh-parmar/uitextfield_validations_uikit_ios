@@ -51,10 +51,10 @@ class ViewController: UIViewController {
     
     //MARK: - Custom Functions
     private func setUpView() {
-        nameTF.text = AppTexts.name
-        emailTF.text = AppTexts.email
-        phoneNumberTF.text = AppTexts.phoneNumber
-        experienceTF.text = AppTexts.experience
+        nameLabel.text = AppTexts.name
+        emailLabel.text = AppTexts.email
+        phoneNumberLabel.text = AppTexts.phoneNumber
+        experienceLabel.text = AppTexts.experience
         
         nameTF.placeholder = TextFieldPlaceholder.enterYourName
         emailTF.placeholder = TextFieldPlaceholder.enterYourEmail

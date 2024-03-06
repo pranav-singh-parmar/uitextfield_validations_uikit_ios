@@ -26,9 +26,12 @@ extension UITextField {
             characterSet = CharacterSet.letters.union(.whitespaces)
         case .emailAddress:
             //CharacterSet(charactersIn: "-_.~")
+            //.union (CharacterSet (charactersIn: "."))
             characterSet = CharacterSet(charactersIn: "-_.@").union(.alphanumerics)
         case .numbers:
-            characterSet = CharacterSet.init(charactersIn: "0123456789")
+            //characterSet = CharacterSet.init(charactersIn: "0123456789")
+            //decimal digits does not contains decimal
+            characterSet = CharacterSet.decimalDigits
         case .decimalNumbers:
             let occurrenciesOfDot = text.filter { $0 == "." }.count
             if occurrenciesOfDot > 0 &&
@@ -36,7 +39,8 @@ extension UITextField {
                 return false
             }
             //characterSet = NSCharacterSet.init(charactersIn: "0123456789.").inverted
-            characterSet = CharacterSet.decimalDigits
+            //decimal digits does not contains decimal
+            characterSet = CharacterSet.decimalDigits.union(CharacterSet(charactersIn: "."))
         }
         
         //https://stackoverflow.com/questions/59436650/how-to-print-a-content-of-the-characterset-decimaldigits
@@ -61,6 +65,10 @@ extension UITextField {
 
 //MARK: - String
 extension String {
+    var trim: Self {
+        return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+    }
+    
     func isRegexValid(forString string: String) -> Bool {
         let predicate = NSPredicate(format: "SELF MATCHES %@", self)
         return predicate.evaluate(with: string)

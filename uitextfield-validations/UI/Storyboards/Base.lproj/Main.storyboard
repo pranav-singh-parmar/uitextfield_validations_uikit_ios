@@ -21,10 +21,10 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CBO-xH-y9z">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="313.33333333333331"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="438"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="6O0-df-3eN">
-                                                <rect key="frame" x="16" y="16" width="361" height="281.33333333333331"/>
+                                                <rect key="frame" x="16" y="16" width="361" height="406"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="mDE-R6-PGf">
                                                         <rect key="frame" x="0.0" y="0.0" width="361" height="58.333333333333336"/>
@@ -74,8 +74,24 @@
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="SqF-r2-0QF">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ZaA-Sb-4Cc">
                                                         <rect key="frame" x="0.0" y="223" width="361" height="58.333333333333314"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjb-Vz-v1o">
+                                                                <rect key="frame" x="0.0" y="0.0" width="361" height="20.333333333333332"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Your Gender" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="euo-3P-aVD">
+                                                                <rect key="frame" x="0.0" y="24.333333333333314" width="361" height="34"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="SqF-r2-0QF">
+                                                        <rect key="frame" x="0.0" y="297.33333333333331" width="361" height="58.333333333333314"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Experience" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLr-EP-91y">
                                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="20.333333333333332"/>
@@ -84,12 +100,17 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Experience" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TR5-Gs-vKz">
-                                                                <rect key="frame" x="0.0" y="24.333333333333314" width="361" height="34"/>
+                                                                <rect key="frame" x="0.0" y="24.333333333333371" width="361" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLa-HR-51O">
+                                                        <rect key="frame" x="0.0" y="371.66666666666669" width="361" height="34.333333333333314"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -125,10 +146,13 @@
                         <outlet property="emailTF" destination="GLr-jh-9Hj" id="0In-uO-Xza"/>
                         <outlet property="experienceLabel" destination="uLr-EP-91y" id="1Xq-xx-jNc"/>
                         <outlet property="experienceTF" destination="TR5-Gs-vKz" id="0Uz-Qx-CkN"/>
+                        <outlet property="genderLabel" destination="gjb-Vz-v1o" id="6ht-eS-bt6"/>
+                        <outlet property="genderTF" destination="euo-3P-aVD" id="ZIM-Gl-yBM"/>
                         <outlet property="nameLabel" destination="JZJ-GW-gHy" id="fzF-0g-HgX"/>
                         <outlet property="nameTF" destination="TDg-nX-Y7v" id="tj9-NL-uvV"/>
                         <outlet property="phoneNumberLabel" destination="cSo-9b-sAN" id="EqK-Ep-6hO"/>
                         <outlet property="phoneNumberTF" destination="O6Z-5y-Cz6" id="KzW-IQ-kTc"/>
+                        <outlet property="submitBTN" destination="bLa-HR-51O" id="bNS-XD-0Fk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

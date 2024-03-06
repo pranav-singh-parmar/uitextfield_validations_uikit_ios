@@ -22,9 +22,19 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var phoneNumberTF: UITextField!
     
+    @IBOutlet weak var genderLabel: UILabel!
+    
+    @IBOutlet weak var genderTF: UITextField!
+    
     @IBOutlet weak var experienceLabel: UILabel!
     
     @IBOutlet weak var experienceTF: UITextField!
+    
+    @IBOutlet weak var submitBTN: UIButton!
+    
+    //MARK: - Variables
+    private let genderList = ["Male", "Female", "Others"]
+    private let genderPicker = UIPickerView()
 
     //MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -39,6 +49,9 @@ class ViewController: UIViewController {
         } else if emailTF.isFirstResponder {
             phoneNumberTF.becomeFirstResponder()
         } else if phoneNumberTF.isFirstResponder {
+            genderTF.becomeFirstResponder()
+        } else if genderTF.isFirstResponder {
+            genderTF.text = genderList[genderPicker.selectedRow(inComponent: 0)]
             experienceTF.becomeFirstResponder()
         } else if experienceTF.isFirstResponder {
             self.view.endEditing(true)
@@ -54,11 +67,14 @@ class ViewController: UIViewController {
         nameLabel.text = AppTexts.name
         emailLabel.text = AppTexts.email
         phoneNumberLabel.text = AppTexts.phoneNumber
+        genderLabel.text = AppTexts.gender
         experienceLabel.text = AppTexts.experience
+        submitBTN.setTitle(AppTexts.submit, for: .normal) 
         
         nameTF.placeholder = TextFieldPlaceholder.enterYourName
         emailTF.placeholder = TextFieldPlaceholder.enterYourEmail
         phoneNumberTF.placeholder = TextFieldPlaceholder.enterYourPhoneNumber
+        genderTF.placeholder = TextFieldPlaceholder.selectYourGender
         experienceTF.placeholder = TextFieldPlaceholder.enterYourExperience
         
         nameTF.keyboardType = .default
@@ -71,12 +87,21 @@ class ViewController: UIViewController {
         
         phoneNumberTF.keyboardType = .numberPad
         phoneNumberTF.textContentType = .telephoneNumber
+        
+        genderTF.inputView = genderPicker
+        genderTF.tintColor = .clear
+        
         experienceTF.keyboardType = .decimalPad
-        // priceTF.textContentType = .
+        // experienceTF.textContentType = .
         
         nameTF.delegate = self
+        emailTF.delegate = self
         phoneNumberTF.delegate = self
+        genderTF.delegate = self
         experienceTF.delegate = self
+        
+        genderPicker.delegate = self
+        genderPicker.dataSource = self
         
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
@@ -97,7 +122,56 @@ class ViewController: UIViewController {
         nameTF.inputAccessoryView = toolBar
         emailTF.inputAccessoryView = toolBar
         phoneNumberTF.inputAccessoryView = toolBar
+        genderTF.inputAccessoryView = toolBar
         experienceTF.inputAccessoryView = toolBar
+        
+        if #available(iOS 14.0, *) {
+            submitBTN.addAction(UIAction(handler: { action in
+                guard let button = action.sender as? UIButton else {
+                    return
+                }
+                self.submitBA(button)
+            }), for: .primaryActionTriggered)
+        } else {
+            submitBTN.addTarget(self, action: #selector(submitBA(_:)), for: .touchUpInside)
+        }
+    }
+    
+    private func getValidationMessageIfAnyFieldIsInvalid() -> String? {
+        if nameTF.text?.trim.isEmpty == true {
+            return ""
+        } else if emailTF.text?.trim.isEmpty == true {
+            return ""
+        } else if !(emailTF.text?.isValidEmail == true) {
+            return ""
+        } else if phoneNumberTF.text?.isEmpty == true {
+            return ""
+        } else if phoneNumberTF.text?.count != 10 {
+            return ""
+        } else if genderTF.text?.isEmpty == true {
+            return ""
+        } else if experienceTF.text?.isEmpty == true {
+            return ""
+        } else {
+            return nil
+        }
+    }
+    
+    private func clearAllFields() {
+        nameTF.text = ""
+        emailTF.text = ""
+        phoneNumberTF.text = ""
+        genderTF.text = ""
+        genderPicker.reloadAllComponents()
+        experienceTF.text = ""
+    }
+    
+    @IBAction func submitBA(_ sender: UIButton) {
+        if let message = getValidationMessageIfAnyFieldIsInvalid() {
+            
+        } else {
+            
+        }
     }
 }
 
@@ -110,7 +184,7 @@ extension ViewController: UITextFieldDelegate {
             .emailAddress
         } else if textField == phoneNumberTF {
             .numbers
-        } else if textField == phoneNumberTF {
+        } else if textField == experienceTF {
             .decimalNumbers
         } else {
             nil
@@ -123,3 +197,17 @@ extension ViewController: UITextFieldDelegate {
     }
 }
 
+//MARK: -
+extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return genderList.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return genderList[row]
+    }
+}

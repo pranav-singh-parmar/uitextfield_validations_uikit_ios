@@ -168,9 +168,16 @@ class ViewController: UIViewController {
     
     @IBAction func submitBA(_ sender: UIButton) {
         if let message = getValidationMessageIfAnyFieldIsInvalid() {
-            
+            let alert = UIAlertController(title: "Error!", message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+            self.present(alert, animated: true)
         } else {
-            
+            //submitBTN.isEnabled = true
+            let alert = UIAlertController(title: "Success!", message: "All Details are Valid.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+                self.clearAllFields()
+            })
+            self.present(alert, animated: true)
         }
     }
 }
@@ -197,7 +204,7 @@ extension ViewController: UITextFieldDelegate {
     }
 }
 
-//MARK: -
+//MARK: - UIPickerViewDelegate, UIPickerViewDataSource
 extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

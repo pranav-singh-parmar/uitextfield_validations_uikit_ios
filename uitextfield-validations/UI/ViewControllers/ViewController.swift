@@ -58,6 +58,15 @@ class ViewController: UIViewController {
         }
     }
     
+    @objc func textFieldValueChange(_ textField: UITextField) {
+        if let _ = getValidationMessageIfAnyFieldIsInvalid() {
+            submitBTN.setEnabled(false)
+        } else {
+            submitBTN.setEnabled(true)
+        }
+    }
+
+    
     @objc func cancelTapped() {
         self.view.endEditing(true)
     }
@@ -80,19 +89,23 @@ class ViewController: UIViewController {
         nameTF.keyboardType = .default
         nameTF.textContentType = .name
         nameTF.autocapitalizationType = .words
+        nameTF.returnKeyType = .next
         // nameTF.reloadInputViews()
         
         emailTF.keyboardType = .emailAddress
         emailTF.textContentType = .emailAddress
+        emailTF.returnKeyType = .next
         
         phoneNumberTF.keyboardType = .numberPad
         phoneNumberTF.textContentType = .telephoneNumber
+        phoneNumberTF.returnKeyType = .next
         
         genderTF.inputView = genderPicker
         genderTF.tintColor = .clear
         
         experienceTF.keyboardType = .decimalPad
         // experienceTF.textContentType = .
+        experienceTF.returnKeyType = .done
         
         nameTF.delegate = self
         emailTF.delegate = self
@@ -102,6 +115,12 @@ class ViewController: UIViewController {
         
         genderPicker.delegate = self
         genderPicker.dataSource = self
+        
+        nameTF.addTarget(self, action: #selector(textFieldValueChange(_:)), for: .editingChanged)
+        emailTF.addTarget(self, action: #selector(textFieldValueChange(_:)), for: .editingChanged)
+        phoneNumberTF.addTarget(self, action: #selector(textFieldValueChange(_:)), for: .editingChanged)
+        genderTF.addTarget(self, action: #selector(textFieldValueChange(_:)), for: .editingChanged)
+        experienceTF.addTarget(self, action: #selector(textFieldValueChange(_:)), for: .editingChanged)
         
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
@@ -125,6 +144,7 @@ class ViewController: UIViewController {
         genderTF.inputAccessoryView = toolBar
         experienceTF.inputAccessoryView = toolBar
         
+        submitBTN.setEnabled(false)
         if #available(iOS 14.0, *) {
             submitBTN.addAction(UIAction(handler: { action in
                 guard let button = action.sender as? UIButton else {
@@ -172,7 +192,6 @@ class ViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "OK", style: .cancel))
             self.present(alert, animated: true)
         } else {
-            //submitBTN.isEnabled = true
             let alert = UIAlertController(title: "Success!", message: "All Details are Valid.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
                 self.clearAllFields()
@@ -196,11 +215,22 @@ extension ViewController: UITextFieldDelegate {
         } else {
             nil
         }
+        let maxLength: Int? = if textField == phoneNumberTF {
+            12
+        } else {
+            60
+        }
         return textField.validate(
             withReplacementString: string,
             andRange: range,
-            toAllow: allowedCharacters ?? .numbers
+            toAllow: allowedCharacters ?? .numbers,
+            uptoLength: maxLength
         )
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        doneTapped()
+        return true
     }
 }
 

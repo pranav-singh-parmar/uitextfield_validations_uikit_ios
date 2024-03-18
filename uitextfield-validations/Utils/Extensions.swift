@@ -63,6 +63,13 @@ extension UITextField {
     }
 }
 
+//MARK: - UIButton
+extension UIButton {
+    func setEnabled(_ enabled: Bool) {
+        alpha = enabled ? 1 : 0.5
+    }
+}
+
 //MARK: - String
 extension String {
     var trim: Self {

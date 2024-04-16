@@ -124,19 +124,19 @@ class ViewController: UIViewController {
         
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
-        // toolBar.barTintColor = UIColor.appColor(.welcopme_Progress)
-        // toolBar.tintColor = UIColor.appColor(.blackColor)
+//         toolBar.barTintColor = UIColor.white
+//         toolBar.tintColor = UIColor.black
         
-        let doneBtn =  UIBarButtonItem(title: AppTexts.done, style: .done, target: self, action: #selector(doneTapped))
-        toolBar.setItems([doneBtn], animated: true)
+        let doneBTN =  UIBarButtonItem(title: AppTexts.done, style: .done, target: self, action: #selector(doneTapped))
+        toolBar.setItems([doneBTN], animated: true)
         
-        let spaceBtn =  UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        toolBar.setItems([spaceBtn], animated: true)
+        let spaceBTN =  UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        toolBar.setItems([spaceBTN], animated: true)
         
-        let cancelBtn =  UIBarButtonItem(title: AppTexts.cancel, style: .done, target: self, action: #selector(cancelTapped))
-        toolBar.setItems([cancelBtn], animated: true)
+        let cancelBTN =  UIBarButtonItem(title: AppTexts.cancel, style: .done, target: self, action: #selector(cancelTapped))
+        toolBar.setItems([cancelBTN], animated: true)
         
-        toolBar.setItems([cancelBtn,spaceBtn,doneBtn], animated: false)
+        toolBar.setItems([cancelBTN, spaceBTN, doneBTN], animated: false)
         
         nameTF.inputAccessoryView = toolBar
         emailTF.inputAccessoryView = toolBar
